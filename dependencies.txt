@@ -1,0 +1,4 @@
+Void Linux:
+- libX11-devel
+- imlib2-devel
+- libXext-devel

@@ -157,17 +157,10 @@ readpw(Display *dpy, const char *pws)
 				}
 				break;
 			}
-			if(llen == 0 && len != 0) {
+
+			if(llen != 0 && len == 0) {
 				for(screen = 0; screen < nscreens; screen++) {
-					XSetWindowBackground(dpy, locks[screen]->win, locks[screen]->colors[1]);
-					XClearWindow(dpy, locks[screen]->win);
-				}
-			} else if(llen != 0 && len == 0) {
-				for(screen = 0; screen < nscreens; screen++) {
-					if(locks[screen]->bgmap)
-						XSetWindowBackgroundPixmap(dpy, locks[screen]->win, locks[screen]->bgmap);
-					else
-						XSetWindowBackground(dpy, locks[screen]->win, locks[screen]->colors[0]);
+					XSetWindowBackgroundPixmap(dpy, locks[screen]->win, locks[screen]->bgmap);
 					XClearWindow(dpy, locks[screen]->win);
 				}
 			}
